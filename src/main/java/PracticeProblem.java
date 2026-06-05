@@ -50,35 +50,49 @@ public class PracticeProblem {
 			}
 			indTempSuit++;
 		}
-
-	
+	System.out.println("Welcome to Vegas StudPoker");
+	 
+	System.out.println("Please Place your bets"); 
+	System.out.println();
 	ArrayList<String> player1hand= new ArrayList<>(); 
 	ArrayList<String> player2handbot= new ArrayList<>(); 
 	ArrayList<String> player3handbot= new ArrayList<>(); 
 	ArrayList<String> player4handbot= new ArrayList<>(); 
+	int player1handbal = 5000;
+	int player2handbotbal = 5000;
+	int player3handbotbal = 5000;
+	int player4handbotbal = 5000;
 	// random ccard geneator - each hand
-	for (int i = player1hand.size(); i < 5; i++) {
+	for (int i = 0; i < 5; i++) {
 		int randomIndex = (int) (Math.random() * deck.size()); 
 		String cardtemp = deck.get(randomIndex);
 		player1hand.add(cardtemp);
 		deck.remove(randomIndex);
 		
 	}
-	for (int i = player2handbot.size(); i < 5; i++) {
+	for (int i = 0; i < 5; i++) {
 		int randomIndex = (int) (Math.random() * deck.size()); 
-		String cardtemp = deck.get(randomIndex);
-		String cardtemppreveious = cardtemp;
-		player2handbot.add(cardtemp);
-		deck.remove(randomIndex);
-		//index 
-		
 
+		String cardTemp = deck.get(randomIndex);
+		player2handbot.add(cardTemp);
+		int indexTempPrevious = randomIndex;
+		if ((i < 1) && indexTempPrevious == randomIndex){
+			
+		}
+		
+		
+		deck.remove(randomIndex);
 	}
-	for (int i = player3handbot.size(); i < 5; i++) {
+		//index 
+
+		
+	}
+	for (int i = 0; i < 5; i++) {
 		int randomIndex = (int) (Math.random() * deck.size()); 
 		String cardtemp = deck.get(randomIndex);
 		player3handbot.add(cardtemp);
 		deck.remove(randomIndex);
+	
 	}
 	for (int i = player4handbot.size(); i < 5; i++) {
 		int randomIndex = (int) (Math.random() * deck.size()); 
@@ -87,15 +101,41 @@ public class PracticeProblem {
 		deck.remove(randomIndex);
 	}
 	//sort 
+	//System.out.println(player1hand);
+	//System.out.println(player2handbot);
+	//System.out.println(player3handbot);
+	//System.out.println(player4handbot);
 	
+	//check for poker hands
+
 }
 
+public static String pokerHands(ArrayList<String>player1hand, ArrayList<String>player2handbot, ArrayList<String>player3handbot, ArrayList<String>player4handbot) {
+	//Royal flush. Ace, king, queen, jack, and 10, all in the same suit. ...
+	String firstCard = player1hand.get(0);
+	String firstCardSuit = firstCard.substring(firstCard.indexOf(":"));
+	String firstCardRank = firstCard.substring(0, firstCard.indexOf(":"));
 
+	String SecondCard = player2handbot.get(1);
+	String SecondCardSuit = 
+	String SecondCardRank = 
+	String ThirdCard = player1hand.get(2);
+	String FourthCard = player1hand.get(3);
+	String FifthCard = player1hand.get(4);
 	
 
-
-
-public static void pokerHands() {
+	if () {
+		
+	}
+		
+	//Straight flush. Five cards of sequential rank that are all of the same suit. ...
+ 	//Four of a kind. Four cards of the same rank, plus one of another rank. ...
+	//Full House
+	//Flush
+	//Straight
+	//Three of a kind
+	//Two pair
+	//High card
 	
 
 }
