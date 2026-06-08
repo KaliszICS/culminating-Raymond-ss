@@ -75,7 +75,7 @@ public class PracticeProblem {
 
 		String cardTemp = deck.get(randomIndex);
 		player2handbot.add(cardTemp);
-		int indexTempPrevious = randomIndex;
+		int indexTempPrevious = randomIndex; //a
 		if ((i < 1) && indexTempPrevious == randomIndex){
 			
 		}
