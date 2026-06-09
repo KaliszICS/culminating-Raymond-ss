@@ -15,6 +15,7 @@
 //import javax.smartcardio.Card;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PracticeProblem {
 	public static void q1() {
@@ -35,8 +36,8 @@ public class PracticeProblem {
 
 	public static void main(String args[]) {
 	// creating the univerisl dekcs of cards
-	String suit[] = {"Diamonds","Hearts", "Clubs", "Spades"};
-	String rank[] = {"1","2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13",}; 
+	String suit[] = { "Clubs", "Diamonds","Hearts",  "Spades"};
+	String rank[] = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "1"}; 
 								// "Ace" = 1 "Jack" = 11, "Queen" = 12, "King" = 13, 
 	ArrayList<String> deck = new ArrayList<>();
 	//int indTemp = 0;
@@ -62,14 +63,101 @@ public class PracticeProblem {
 	int player2handbotbal = 5000;
 	int player3handbotbal = 5000;
 	int player4handbotbal = 5000;
-	// random ccard geneator - each hand
-	for (int i = 0; i < 5; i++) {
-		int randomIndex = (int) (Math.random() * deck.size()); 
-		String cardtemp = deck.get(randomIndex);
-		player1hand.add(cardtemp);
-		deck.remove(randomIndex);
+
+	// random card geneator - each hand
+	// having a dupe of deck to sort cards
+	// sorting by index is easier as the index is sorted from great to 
+	// game
+	ArrayList<String> deckTemp1 = new ArrayList<>(deck); 
+		int randomIndexPlayer1 = (int) (Math.random() * deckTemp1.size()); 
+		deckTemp1.remove(randomIndexPlayer1);
+		int randomIndexPlayer2 = (int) (Math.random() * deckTemp1.size());
+		deckTemp1.remove(randomIndexPlayer2);
+		int randomIndexPlayer3 = (int) (Math.random() * deckTemp1.size());
+		deckTemp1.remove(randomIndexPlayer3);
+		int randomIndexPlayer4 = (int) (Math.random() * deckTemp1.size());
+		deckTemp1.remove(randomIndexPlayer4);
+		int randomIndexPlayer5 = (int) (Math.random() * deckTemp1.size());
+		deckTemp1.remove(randomIndexPlayer5);
+		ArrayList<Integer> cardtemp = new ArrayList<>(List.of(randomIndexPlayer1, randomIndexPlayer2, randomIndexPlayer3, randomIndexPlayer4, randomIndexPlayer5));
+		 
+		//String cardtemp = deck.get(randomIndex);
+		for (int i = 0; cardtemp.size() > 0; i++) {
+			int cardIndex = cardtemp.get(i);
+			player1hand.add(deck.get(cardIndex));
+			deck.remove(cardIndex);
+		}
+		System.out.println(player1handbal);
+	
 		
-	}
+		ArrayList<String> deckTemp2 = new ArrayList<>(deck); 
+		int randomIndexBotTwo1 = (int) (Math.random() * deckTemp2.size()); 
+		deckTemp2.remove(randomIndexPlayer1);
+		int randomIndexBotTwo2 = (int) (Math.random() * deckTemp2.size());
+		deckTemp2.remove(randomIndexPlayer2);
+		int randomIndexBotTwo3 = (int) (Math.random() * deckTemp2.size());
+		deckTemp2.remove(randomIndexPlayer3);
+		int randomIndexBotTwo4 = (int) (Math.random() * deckTemp2.size());
+		deckTemp2.remove(randomIndexPlayer4);
+		int randomIndexBotTwo5 = (int) (Math.random() * deckTemp2.size());
+		deckTemp2.remove(randomIndexPlayer5);
+		List<Integer> cardtemp2 = new ArrayList <>(List.of(randomIndexBotTwo1, randomIndexBotTwo2, randomIndexBotTwo3, randomIndexBotTwo4, randomIndexBotTwo5));
+		 
+		//String cardtemp = deck.get(randomIndex);
+		for (int i = 0; cardtemp2.size() > 0; i++) {
+			int cardIndex = cardtemp2.get(i);
+			player2handbot.add(deck.get(cardIndex));
+			deck.remove(cardIndex);
+		}
+		System.out.println(player1handbal);
+
+		ArrayList<String> deckTemp3 = new ArrayList<>(deck); 
+		int randomIndexBotThree1 = (int) (Math.random() * deckTemp3.size()); 
+		deckTemp3.remove(randomIndexPlayer1);
+		int randomIndexBotThree2 = (int) (Math.random() * deckTemp3.size());
+		deckTemp3.remove(randomIndexPlayer2);
+		int randomIndexBotThree3 = (int) (Math.random() * deckTemp3.size());
+		deckTemp3.remove(randomIndexPlayer3);
+		int randomIndexBotThree4 = (int) (Math.random() * deckTemp3.size());
+		deckTemp3.remove(randomIndexPlayer4);
+		int randomIndexBotThree5 = (int) (Math.random() * deckTemp3.size());
+		deckTemp3.remove(randomIndexPlayer5);
+		List<Integer> cardtemp3 = new ArrayList <>(List.of(randomIndexBotThree1, randomIndexBotThree2, randomIndexBotThree3, randomIndexBotThree4, randomIndexBotThree5));
+		 
+		//String cardtemp = deck.get(randomIndex);
+		for (int i = 0; cardtemp3.size() > 0; i++) {
+			int cardIndex = cardtemp3.get(i);
+			player3handbot.add(deck.get(cardIndex));
+			deck.remove(cardIndex);
+		}
+		System.out.println(player1handbal);
+
+		ArrayList<String> deckTemp2 = new ArrayList<>(deck); 
+		int randomIndexBotTwo1 = (int) (Math.random() * deck.size()); 
+		deckTemp1.remove(randomIndexPlayer1);
+		int randomIndexBotTwo2 = (int) (Math.random() * deckTemp2.size());
+		deckTemp1.remove(randomIndexPlayer2);
+		int randomIndexBotTwo3 = (int) (Math.random() * deckTemp2.size());
+		deckTemp1.remove(randomIndexPlayer3);
+		int randomIndexBotTwo4 = (int) (Math.random() * deckTemp2.size());
+		deckTemp1.remove(randomIndexPlayer4);
+		int randomIndexBotTwo5 = (int) (Math.random() * deckTemp2.size());
+		deckTemp1.remove(randomIndexPlayer5);
+		List<Integer> cardtemp2 = new ArrayList <>(List.of(randomIndexBotTwo1, randomIndexBotTwo2, randomIndexBotTwo3, randomIndexBotTwo4, randomIndexBotTwo5));
+		 
+		//String cardtemp = deck.get(randomIndex);
+		for (int i = 0; cardtemp2.size() > 0; i++) {
+			int cardIndex = cardtemp2.get(i);
+			player2handbot.add(deck.get(cardIndex));
+			deck.remove(cardIndex);
+		}
+		System.out.println(player1handbal);
+
+		}
+}
+	
+
+
 	for (int i = 0; i < 5; i++) {
 		int randomIndex = (int) (Math.random() * deck.size()); 
 
@@ -140,7 +228,8 @@ public static String pokerHands(ArrayList<String>player1hand, ArrayList<String>p
 
 }
 
-}
+
+
 
 
 
