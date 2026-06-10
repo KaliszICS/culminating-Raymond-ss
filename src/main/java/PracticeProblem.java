@@ -38,6 +38,7 @@ public class PracticeProblem {
 	public static void main(String args[]) {
 
 	Scanner input = new Scanner(System.in);
+	//declear
 	int player1handbal = 5000;
 	int player2handbotbal = 50000;
 	int player3handbotbal = 50000;		
@@ -61,13 +62,11 @@ public class PracticeProblem {
 	String rank[] = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "1"}; 
 								// "Ace" = 1 "Jack" = 11, "Queen" = 12, "King" = 13, 
 	ArrayList<String> deck = new ArrayList<>();
-	//int indTemp = 0;
 	int indTempSuit = 0;
 
 		for (int r = 0; indTempSuit < 4; r++) {// creaitng cards based on sutis since one cards has 4 diff suits
 			for (int s = 0; s < 13; s++) {
 				deck.add (rank[s] + ":" + suit[r]); //creates one cards at one index and : to split it index to easy get values
-				//indTemp++;
 				
 			}
 			indTempSuit++;
@@ -89,7 +88,7 @@ public class PracticeProblem {
 	// sorting by index is easier as the index is sorted from great to 
 	// game
 	
-
+	// first card draw
 	  for (int i = 0; i < 5; i++) {
             int r1 = (int) (Math.random() * deck.size());
 			String cardtemp = deck.get(r1);
@@ -122,7 +121,9 @@ public class PracticeProblem {
 		if (discardCount > 0 && discardCount <= 3) {
             ArrayList<Integer> cardToRemove = new ArrayList<>();
             for (int in = 0; in < discardCount; in++) {
-                System.out.print("Enter indexs of card to discard(just numbers): ");
+                System.out.print("Enter indexs of card to discard(enter from GREATEST to LEASTEST): ");
+				//error code if you enter form leastest to greatest as cards from least to greater shift over one after the for loop
+				// the error the first card get discard properly but the the cards after get shifted one over (1-2) -> (1-3)
 				int carinddiscard = input.nextInt();
 				while (carinddiscard > 5 || carinddiscard < 1){
 					System.out.print("Enter indexs of your hand: ");
@@ -160,6 +161,7 @@ public class PracticeProblem {
 			System.out.println("Players your final bet too much balence not enough");
 			bet2 = input.nextInt();
 		}
+		//play-in bet
         player1handbal -= bet2;
         player2handbotbal -= bet2;
         player3handbotbal -= bet2;
@@ -173,9 +175,9 @@ public class PracticeProblem {
 		int player3 = evaluatepokerhand(player3handbot);
 		int player4 = evaluatepokerhand(player4handbot);
 
-		//checking for player best hand
+		//checking for player best hand out of 4
 		int maxscore = Math.max(Math.max(player1, player2), Math.max(player3, player4));	
-
+		//playerr with best hand wins 
 		if  (player1 == maxscore) {
 			System.out.println("player 1 wins");
 			player1handbal += pot;
@@ -200,7 +202,7 @@ public class PracticeProblem {
 	
 	}
 
-
+//soritng hands in order to get ranking of poker hands
 public static int[] getsortedranks(ArrayList<String> hand) {
         int[] ranks = new int[5];
         for (int i = 0; i < 5; i++) {
@@ -260,7 +262,7 @@ public static int[] getsortedranks(ArrayList<String> hand) {
 			straight = true;
 		}
 
-		// number of pairs 2 3 4 5
+		// sorting for poker hands number of pairs 2 3 4 5
 
 		int quadcount = 0;
         int triplecount = 0;
@@ -315,7 +317,7 @@ public static int[] getsortedranks(ArrayList<String> hand) {
 			return 200;
 		}
 		//getting hte highest card
-		//sorting my number value
+		//sorting my number value 
 		int highcard = ranks[4];
 		return 100 + highcard;
 	}
