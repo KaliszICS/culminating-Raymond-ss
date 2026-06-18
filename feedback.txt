@@ -1,0 +1,12 @@
+K(30%): 80
+I(30%): 70
+C(10%): 75
+A(30%): 70
+73.5%
+
+Missing Documentation
+Other players hands at end are not shown.
+You don't differentiate between between hands that are the same but different rank (high card king should beat high card queen)
+Missing most input validation not done.
+Indexes of cards is incorrect (indexes move as you remove items from the arraylist)
+When asking for more than 3 cards to remove the code just goes on.
